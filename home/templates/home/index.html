@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="text-center">
     <h1 class="display-4">Welcome to Tanit’s Table</h1>
     <p class="lead">A taste of Tunisia in every bite, served with sacred elegance.</p>
     <a href="{% url 'booking' %}" class="btn btn-primary mt-3">Book a Table</a>
 </div>
+
+<div class="container text-center mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <img src="{% static 'images/Carthage-bouKornine.webp' %}" 
+           alt="Carthage and Boukornine" 
+           class="img-fluid rounded shadow"
+           style="max-width: 100%;">
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
