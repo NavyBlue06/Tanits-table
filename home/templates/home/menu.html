@@ -1,29 +1,121 @@
-{% extends 'base.html' %} {% block content %}
-<h2 class="mb-4">Our Menu</h2>
-<div class="row">
-  <div class="col-md-4">
-    <h4>Brik à l’œuf</h4>
-    <p>Delicate pastry filled with egg, tuna, and capers. Crispy and golden.</p>
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<div class="container mt-5">
+  <h2 class="text-center mb-5">Our Menu</h2>
+
+  <!-- Appetizers -->
+  <h3 class="mb-4 text-primary border-bottom pb-2">Appetizers</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img
+          src="{% static 'images/brik.webp' %}"
+          class="card-img-top"
+          alt="Brik"
+          style="height: 200px; object-fit: cover"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title">Brik à l'œuf</h5>
+          <p class="card-text">
+            Crispy pastry filled with egg, tuna, and capers. Served golden and
+            hot.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">45 TND</small>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img
+          src="{% static 'images/mechouia.webp' %}"
+          class="card-img-top"
+          alt="Salade Mechouia"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Salade Mechouia</h5>
+          <p class="card-text">
+            Grilled pepper & tomato salad with olive oil, egg, and tuna.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">30 TND</small>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h4>Couscous Royal</h4>
-    <p>
-      Steamed semolina with vegetables, lamb, and merguez in a spiced broth.
-    </p>
+
+  <!-- Main Courses -->
+  <h3 class="mb-4 text-primary border-bottom pb-2">Main Courses</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img
+          src="{% static 'images/couscous.webp' %}"
+          class="card-img-top"
+          alt="Couscous Royal"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Couscous Royal</h5>
+          <p class="card-text">
+            Semolina with lamb, merguez, chickpeas & spiced broth.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">65 TND</small>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img
+          src="{% static 'images/ojja.webp' %}"
+          class="card-img-top"
+          alt="Ojja Merguez"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ojja Merguez</h5>
+          <p class="card-text">
+            Spicy tomato and pepper stew with merguez sausage and eggs.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">55 TND</small>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h4>Makroud</h4>
-    <p>
-      Semolina pastries with dates and honey — sweet, sticky, unforgettable.
-    </p>
-  </div>
-  <div class="col-md-4">
-    <h4>Chakhchoukha</h4>
-    <p>Layered bread with meat and vegetables, served with a rich sauce.</p>
-  </div>
-  <div class="col-md-4">
-    <h4>Mechouia Salad</h4>
-    <p>Grilled peppers, tomatoes, and onions, drizzled with olive oil.</p>
+
+  <!-- Desserts -->
+  <h3 class="mb-4 text-primary border-bottom pb-2">Desserts</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <img
+            src="{% static 'images/makroud.webp' %}"
+            class="card-img-top"
+            alt="Makroud"
+            style="height: 200px; object-fit: cover"
+          />
+
+          <h5 class="card-title">Makroud</h5>
+          <p class="card-text">
+            Date-filled semolina cookies soaked in honey. Sweet, sticky,
+            heavenly.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">25 TND</small>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 {% endblock %}
