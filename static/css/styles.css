@@ -82,19 +82,19 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: #0066cc;
-    box-shadow: 0 0 5px rgba(0,102,204,0.3);
+    border-color: #0066cc !important;
+    box-shadow: 0 0 5px rgba(0,102,204,0.3) !important;
 }
 
 label {
     font-weight: bold;
     margin-bottom: 0.2rem;
     display: block;
-    color: #003f5c;
+    color: #003f5c !important;
 }
 
 .text-danger {
-    color: #dc3545;
+    color: #dc3545 !important;
     font-size: 0.875rem;
 }
 
