@@ -112,6 +112,9 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
   ![CSS Validation](documentation/validations/css-validation.png)
 
 - **Python:** Validated with `flake8`
+
+   The Python code was validated using `flake8`.  
+   No functional or structural errors were found. The only warnings reported were related to line length exceeding 79 characters (`E501`)—these appeared within third-party files inside the virtual environment and do not affect the project's own code.
   
   ![Flake8 Validation](documentation/validations/flake8test.png)
 
