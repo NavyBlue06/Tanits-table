@@ -189,3 +189,4 @@ While the core functionality is fully implemented, future improvements could inc
 
 - Thanks to the Code Institute community for their support during one of the worst periods of my life.  
 - Special thanks to reviewers and peers who gave feedback during development.
+- ChatGPT for brainstorming and improving my ReadMe. 
