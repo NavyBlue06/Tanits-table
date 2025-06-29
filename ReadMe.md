@@ -100,7 +100,6 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 | Samsung Zflip 6     | EDGE           | ✅         |
 
 ---
-
 ### 🔎 Validators
 
 - **HTML:** Validated using [W3C Validator](https://validator.w3.org/)
@@ -117,7 +116,6 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
   ![Flake8 Validation](documentation/validation/flake8.png)
 
 ---
-
 
 ### 📊 Lighthouse Testing
 
