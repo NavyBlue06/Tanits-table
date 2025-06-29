@@ -104,16 +104,16 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 
 - **HTML:** Validated using [W3C Validator](https://validator.w3.org/)
   
-  ![HTML Validation Home](documentation/validation/home.png)  
-  ![HTML Validation Menu](documentation/validation/menu.png)
+  ![HTML Validation Home](documentation/validations/home.png)  
+  ![HTML Validation Menu](documentation/validations/menu.png)
 
 - **CSS:** Checked with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
   
-  ![CSS Validation](documentation/validation/css-validation.png)
+  ![CSS Validation](documentation/validations/css-validation.png)
 
 - **Python:** Validated with `flake8`
   
-  ![Flake8 Validation](documentation/validation/flake8.png)
+  ![Flake8 Validation](documentation/validations/flake8.png)
 
 ---
 
