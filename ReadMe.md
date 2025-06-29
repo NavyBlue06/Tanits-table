@@ -113,7 +113,7 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 
 - **Python:** Validated with `flake8`
   
-  ![Flake8 Validation](documentation/validations/flake8.png)
+  ![Flake8 Validation](documentation/validations/flake8test.png)
 
 ---
 
