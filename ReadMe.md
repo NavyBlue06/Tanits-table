@@ -64,6 +64,21 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 
 ---
 
+## 🔁 CRUD Functionality
+
+The core feature of Tanit's Table is the table reservation system, which demonstrates full CRUD operations:
+
+| Operation | Feature Description                                                                 |
+|-----------|---------------------------------------------------------------------------------------|
+| **Create** | Users can submit a table booking using a form with name, email, date, time, and guests. |
+| **Read**   | Logged-in users can view their current bookings under the "My Bookings" section.       |
+| **Update** | Users can modify existing bookings from the "My Bookings" page.                        |
+| **Delete** | Bookings can be cancelled (deleted) by the user via the "My Bookings" section.         |
+
+These operations are available only to authenticated users, ensuring security and personalized access.
+
+---
+
 ## Technologies Used
 
 - **Languages:** HTML5, CSS3, Python
@@ -130,6 +145,17 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 | My Bookings    | 98          | 100            | 100            | 100  | ![My Bookings](documentation/lighthouse/mybookings.png) |
 
 All pages passed Lighthouse audits with high scores.
+
+---
+
+## 🌱 Future Enhancements
+
+While the core functionality is fully implemented, future improvements could include:
+
+- Email confirmation for bookings  
+- Admin dashboard for managing reservations  
+- Filtering menu items by category or dietary preferences  
+- Google Maps integration for better location UX  
 
 ---
 
