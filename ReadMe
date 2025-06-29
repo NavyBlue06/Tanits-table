@@ -1,4 +1,4 @@
-<img src="documentation/amiresp.png" alt="Am I responsive?" width="500"/>
+![Am I responsive screenshot](documentation/amiresp.png)
 
 # Tanit's Table
 
@@ -77,16 +77,17 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 ---
 
 ## 🧪 Testing
+
 ### ✅ Functional Testing
 
-| **Feature**         | **Test Performed**                                                                 | **Result**        |
-|---------------------|-------------------------------------------------------------------------------------|-------------------|
-| Booking Creation    | User can submit the table reservation form and see a confirmation message          | Working as expected ✅ |
-| Edit Booking        | Logged-in user can access the edit form, change details, and submit successfully    | Working as expected ✅ |
-| Cancel Booking      | User can cancel a booking, which is removed from their "My Bookings" list           | Working as expected ✅ |
-| User Auth Flow      | Registration, login, logout, and access control work without issues                 | Working as expected ✅ |
-| Navigation Links    | Navbar links redirect to the correct pages for all screen sizes                     | Working as expected ✅ |
-| Static Files        | CSS loads properly; favicon, background images, and style assets display correctly  | Working as expected ✅ |
+| **Feature**         | **Test Performed**                                                                 | **Result**              |
+|---------------------|-------------------------------------------------------------------------------------|-------------------------|
+| Booking Creation    | User can submit the table reservation form and see a confirmation message          | Working as expected ✅   |
+| Edit Booking        | Logged-in user can access the edit form, change details, and submit successfully    | Working as expected ✅   |
+| Cancel Booking      | User can cancel a booking, which is removed from their "My Bookings" list           | Working as expected ✅   |
+| User Auth Flow      | Registration, login, logout, and access control work without issues                 | Working as expected ✅   |
+| Navigation Links    | Navbar links redirect to the correct pages for all screen sizes                     | Working as expected ✅   |
+| Static Files        | CSS loads properly; favicon, background images, and style assets display correctly  | Working as expected ✅   |
 
 ### 📱 Responsive Testing
 
@@ -103,18 +104,17 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 ### 🔎 Validators
 
 - **HTML:** Validated using [W3C Validator](https://validator.w3.org/)
-  <br>
-  <img src="documentation/validation/home.png" alt="HTML Validation Screenshot" width="600">
-  <img src="documentation/validation/menu.png" alt="HTML Validation Screenshot" width="600">
-
+  
+  ![HTML Validation Home](documentation/validation/home.png)  
+  ![HTML Validation Menu](documentation/validation/menu.png)
 
 - **CSS:** Checked with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-  <br>
-  <img src="documentation/validation/css-validation.png" alt="CSS Validation Screenshot" width="600">
+  
+  ![CSS Validation](documentation/validation/css-validation.png)
 
 - **Python:** Validated with `flake8`
-  <br>
-  <img src="documentation/validation/flake8.png" alt="Flake8 Python Linting Screenshot" width="600">
+  
+  ![Flake8 Validation](documentation/validation/flake8.png)
 
 ---
 
@@ -127,14 +127,14 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 | Book a Table   | 97          | 100            | 100            | 100  | ![Booking Form](documentation/lighthouse/bookform.png) |
 | My Bookings    | 98          | 100            | 100            | 100  | ![My Bookings](documentation/lighthouse/mybookings.png) |
 
-All pages passed Lighthouse audits with high scores.  
-
+All pages passed Lighthouse audits with high scores.
 
 ---
 
 ## Deployment
 
 ### Steps:
+
 1. GitHub repo created and code pushed.
 2. Heroku app set up with Postgres, gunicorn, and required environment variables.
 3. Static files handled using WhiteNoise.
@@ -145,13 +145,13 @@ All pages passed Lighthouse audits with high scores.
 
 ## Credits
 
-- **Developed by:** Navah Eierdal
-- **Inspiration:** Code Institute Django walkthroughs, Tunisian cuisine & culture
-- **Images:** DALLE
+- **Developed by:** Navah Eierdal  
+- **Inspiration:** Code Institute Django walkthroughs, Tunisian cuisine & culture  
+- **Images:** DALLE  
 
 ---
 
 ## Acknowledgements
 
-- Thanks to the Code Institute Slack community for support.
+- Thanks to the Code Institute Slack community for support.  
 - Special thanks to reviewers and peers who gave feedback during development.
