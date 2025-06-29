@@ -118,6 +118,7 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
 
 ---
 
+
 ### 📊 Lighthouse Testing
 
 | Page           | Performance | Accessibility | Best Practices | SEO  | Screenshot |
