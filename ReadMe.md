@@ -14,8 +14,14 @@ Tanit’s Table is a fictional Tunisian restaurant website built with Django. Th
   - [User Stories](#user-stories)
   - [Design](#design)
 - [Features](#features)
+- [CRUD Functionality](#crud-functionality)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
+  - [Functional Testing](#functional-testing)
+  - [Responsive Testing](#responsive-testing)
+  - [Validators](#validators)
+  - [Lighthouse Testing](#lighthouse-testing)
+- [Future Enhancements](#future-enhancements)
 - [Deployment](#deployment)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
@@ -181,5 +187,5 @@ While the core functionality is fully implemented, future improvements could inc
 
 ## Acknowledgements
 
-- Thanks to the Code Institute Slack community for support.  
+- Thanks to the Code Institute community for their support during one of the worst periods of my life.  
 - Special thanks to reviewers and peers who gave feedback during development.
