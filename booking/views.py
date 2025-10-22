@@ -1,52 +1,92 @@
-from django.shortcuts import render, redirect, get_object_or_404
+# bookings/views.py
+from datetime import date
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Booking
+from django.core.exceptions import PermissionDenied
+from django.db import IntegrityError
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from .forms import BookingForm
+from .models import Booking
+
+
+def home(request):
+    """Render the public landing page."""
+    return render(request, "home.html")
 
 
 @login_required
 def book_table(request):
+    """Create a new booking."""
     if request.method == "POST":
-        form = BookingForm(request.POST)
+        form = BookingForm(request.POST, user=request.user)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
-            booking.save()
-            messages.success(request, "Booking created successfully.")
-            return redirect("my_bookings")
+            try:
+                booking.save()
+            except IntegrityError:
+                form.add_error(None, "A booking already exists for this date and time.")
+            else:
+                messages.success(request, "Table booking created successfully.")
+                return redirect("my_bookings")
     else:
-        form = BookingForm()
-    return render(request, "booking/book.html", {"form": form})
+        initial = {
+            "name": (
+                f"{request.user.first_name} {request.user.last_name}".strip()
+                or request.user.username
+            ),
+            "email": request.user.email,
+        }
+        form = BookingForm(initial=initial, user=request.user)
+
+    return render(request, "bookings/book_table.html", {"form": form})
 
 
 @login_required
 def my_bookings(request):
-    bookings = Booking.objects.filter(user=request.user).order_by("date")
-    return render(request, "booking/my_bookings.html", {"bookings": bookings})
+    """List bookings belonging to the authenticated user."""
+    bookings = Booking.objects.filter(user=request.user).order_by(
+        "-date", "-time", "-id"
+    )
+    return render(request, "bookings/my_bookings.html", {"bookings": bookings})
 
 
 @login_required
-def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
+def edit_booking(request, pk):
+    """Edit an existing booking belonging to the authenticated user."""
+    booking = get_object_or_404(Booking, pk=pk)
+    if booking.user_id != request.user.id:
+        raise PermissionDenied("Access denied.")
 
     if request.method == "POST":
-        form = BookingForm(request.POST, instance=booking)
+        form = BookingForm(request.POST, instance=booking, user=request.user)
         if form.is_valid():
-            form.save()
-            messages.success(request, "Your booking was updated successfully.")
-            return redirect("my_bookings")
+            try:
+                form.save()
+            except IntegrityError:
+                form.add_error(None, "A booking already exists for this date and time.")
+            else:
+                messages.success(request, "Booking updated successfully.")
+                return redirect("my_bookings")
     else:
-        form = BookingForm(instance=booking)
+        form = BookingForm(instance=booking, user=request.user)
 
-    return render(request, "booking/edit_booking.html", {"form": form})
+    return render(
+        request, "bookings/edit_booking.html", {"form": form, "booking": booking}
+    )
 
 
 @login_required
-def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
+def delete_booking(request, pk):
+    """Delete a booking belonging to the authenticated user."""
+    booking = get_object_or_404(Booking, pk=pk)
+    if booking.user_id != request.user.id:
+        raise PermissionDenied("Access denied.")
+
     if request.method == "POST":
         booking.delete()
-        messages.success(request, "Your booking was deleted successfully.")
+        messages.success(request, "Booking deleted successfully.")
         return redirect("my_bookings")
-    return render(request, "booking/delete_booking.html", {"booking": booking})
+
+    return render(request, "bookings/confirm_delete.html", {"booking": booking})
