@@ -1,4 +1,4 @@
-![Am I responsive screenshot](documentation/amiresp.png)
+![Am I responsive screenshot](documentation\amiresp.png)
 
 # Tanit's Table
 
@@ -66,11 +66,15 @@ Tanit’s Table offers an intuitive platform for users to explore Tunisian cuisi
 - **Accessibility**: High-contrast colors, alt text for images, and ARIA landmarks for screen reader support.
 - **Responsiveness**: Bootstrap 5 ensures seamless adaptation across mobile, tablet, and desktop devices.
 
-### Wireframes
+## Wireframes
 
-Wireframes were created to guide the design process:
-- [Desktop Wireframe](documentation/wireframes/desktop.png)
-- [Mobile Wireframe](documentation/wireframes/mobile.png)
+### Desktop Wireframes
+
+| Page          | Wireframe |
+|---------------|-----------|
+| Home Page     | ![Desktop Home Wireframe](documentation/wireframes/desktop_home_wireframe.png) |
+| Menu Page     | ![Desktop Menu Wireframe](documentation/wireframes/desktop_menu_wireframe.png) |
+| Book a Table  | ![Desktop Book a Table Wireframe](documentation/wireframes/desktop_bookatable_wireframe.png) |
 
 ---
 
@@ -111,7 +115,7 @@ Input validation prevents bookings for past dates, enhancing usability and relia
 ## Database Schema
 
 The database structure is illustrated in the ER diagram below:
-![ER Diagram](documentation/er_diagram.png)
+![ER Diagram](../../Downloads/documentation/er_diagram.png)
 
 - **User**: Stores user information (via Django Allauth).
 - **Booking**: Stores booking details (name, email, date, time, guests, linked to User via foreign key).
@@ -158,25 +162,25 @@ The database structure is illustrated in the ER diagram below:
 ### 🔎 Validators
 
 - **HTML**: Validated using [W3C Validator](https://validator.w3.org/)  
-  - [Home](documentation/validations/home.png)  
-  - [Menu](documentation/validations/menu.png)  
-  - [Booking Form](documentation/validations/booking.png)  
+  - [Home](../../Downloads/documentation/validations/home.png)  
+  - [Menu](../../Downloads/documentation/validations/menu.png)  
+  - [Booking Form](../../Downloads/documentation/validations/booking.png)  
 
 - **CSS**: Validated using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)  
-  - [CSS Validation](documentation/validations/css-validation.png)  
+  - [CSS Validation](../../Downloads/documentation/validations/css-validation.png)  
 
 - **Python**: Validated with `flake8`  
   No functional or structural errors. Line length warnings (`E501`) in third-party files do not affect project code.  
-  - [Flake8 Validation](documentation/validations/flake8test.png)
+  - [Flake8 Validation](../../Downloads/documentation/validations/flake8test.png)
 
 ### 📊 Lighthouse Testing
 
 | Page           | Performance | Accessibility | Best Practices | SEO  | Screenshot |
 |----------------|-------------|----------------|----------------|------|------------|
-| Home           | 90          | 100            | 100            | 100  | [Home](documentation/lighthouse/home.png) |
-| Menu           | 88          | 98             | 100            | 100  | [Menu](documentation/lighthouse/menu.png) |
-| Book a Table   | 97          | 100            | 100            | 100  | [Booking Form](documentation/lighthouse/bookform.png) |
-| My Bookings    | 98          | 100            | 100            | 100  | [My Bookings](documentation/lighthouse/mybookings.png) |
+| Home           | 90          | 100            | 100            | 100  | [Home](../../Downloads/documentation/lighthouse/home.png) |
+| Menu           | 88          | 98             | 100            | 100  | [Menu](../../Downloads/documentation/lighthouse/menu.png) |
+| Book a Table   | 97          | 100            | 100            | 100  | [Booking Form](../../Downloads/documentation/lighthouse/bookform.png) |
+| My Bookings    | 98          | 100            | 100            | 100  | [My Bookings](../../Downloads/documentation/lighthouse/mybookings.png) |
 
 ### 🐞 Bugs and Resolutions
 
@@ -241,16 +245,20 @@ This project is deployed to **Heroku** with **Postgres** as the production datab
    DATABASE_URL=postgres://[auto-generated]
    CLOUDINARY_URL=cloudinary://123456789:abcdefg@your-cloud-name
    DISABLE_COLLECTSTATIC=1
+   ```
 
-
-Prepare the Repository  
+4. **Prepare the Repository**  
 
 Include in project root:  
-requirements.txt: Generate with pip freeze > requirements.txt.  
-Procfile: Contains:  web: gunicorn tanits_table.wsgi
+- `requirements.txt`: Generate with `pip freeze > requirements.txt`.  
+- `Procfile`: Contains:  
+  ```text
+  web: gunicorn tanits_table.wsgi
+  ```
 
-
-Verify settings.py (already configured for python-decouple and dj_database_url):  from decouple import config
+Verify `settings.py` (already configured for python-decouple and dj_database_url):  
+```python
+from decouple import config
 import dj_database_url
 import os
 
@@ -272,118 +280,114 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+```
 
-
-
-
-
-
-Push Code to Heroku  
-
-Log in:  heroku login
-
-
-Set Heroku remote (replace tanits-table with your app name):  heroku git:remote -a tanits-table
-
-
-Push code:  git add .
+5. **Push Code to Heroku**  
+```bash
+heroku login
+heroku git:remote -a tanits-table
+git add .
 git commit -m "Deploy to Heroku"
 git push heroku main
+```
 
-
-
-
-Run Migrations  
+6. **Run Migrations**  
+```bash
 heroku run python manage.py migrate
+```
 
-
-Create a Superuser (Optional)  
+7. **Create a Superuser (Optional)**  
+```bash
 heroku run python manage.py createsuperuser
+```
 
+8. **Collect Static Files**  
+- Remove `DISABLE_COLLECTSTATIC` from Config Vars.  
+- Run:  
+  ```bash
+  heroku run python manage.py collectstatic --noinput
+  ```
 
-Collect Static Files  
-
-Remove DISABLE_COLLECTSTATIC from Config Vars.  
-Run:  heroku run python manage.py collectstatic --noinput
-
-
-
-
-Open the Application  
+9. **Open the Application**  
+```bash
 heroku open
+```
 
-Live site: https://tanits-table-5445a6d81e90.herokuapp.com.
+Live site: https://tanits-table-5445a6d81e90.herokuapp.com
 
-Verify Deployment  
+10. **Verify Deployment**  
+- Test a privileged link (e.g., `/booking/edit/34/`) in incognito mode to confirm `DEBUG=False`.  
+- Verify static files (via WhiteNoise), media (via Cloudinary), and CRUD operations work.
 
-Test a privileged link (e.g., /booking/edit/34/) in incognito mode to confirm DEBUG=False.  
-Verify static files (via WhiteNoise), media (via Cloudinary), and CRUD operations work.
+---
 
+### Local Deployment
 
-
-Local Deployment
-
-Clone the Repository  
+1. **Clone the Repository**  
+```bash
 git clone https://github.com/YOUR-USERNAME/tanits-table.git
 cd tanits-table
+```
 
-
-Set Up a Virtual Environment  
+2. **Set Up a Virtual Environment**  
+```bash
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
+```
 
-
-Install Dependencies  
+3. **Install Dependencies**  
+```bash
 pip install -r requirements.txt
+```
 
-
-Set Up Environment Variables  
-
-Create .env in project root:  SECRET_KEY=your-local-secret-key
+4. **Set Up Environment Variables**  
+Create `.env` in project root:  
+```text
+SECRET_KEY=your-local-secret-key
 DEBUG=True
 DATABASE_URL=sqlite:///db.sqlite3
 CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME
+```
 
+Install python-decouple:  
+```bash
+pip install python-decouple
+```
 
-Install python-decouple:  pip install python-decouple
-
-
-Verify settings.py loads environment variables using python-decouple (already configured).
-
-
-Apply Migrations  
+5. **Apply Migrations**  
+```bash
 python manage.py migrate
+```
 
-
-Create a Superuser (Optional)  
+6. **Create a Superuser (Optional)**  
+```bash
 python manage.py createsuperuser
+```
 
-
-Run the Development Server  
+7. **Run the Development Server**  
+```bash
 python manage.py runserver
+```
 
 Access at: http://127.0.0.1:8000.
 
-Verify Local Setup  
+8. **Verify Local Setup**  
+- Confirm site loads in browser.  
+- Test CRUD operations and media display (via Cloudinary).
 
-Confirm site loads in browser.  
-Test CRUD operations and media display (via Cloudinary).
+---
 
+## Credits
 
+- Developed by: Navah Eierdal  
+- Inspiration: Code Institute Django walkthroughs, Tunisian cuisine & culture  
+- Images: DALL·E  
+- Wireframes: Figma  
 
+---
 
-Credits
+## Acknowledgements
 
-Developed by: Navah Eierdal
-Inspiration: Code Institute Django walkthroughs, Tunisian cuisine & culture
-Images: DALL·E
-Wireframes: Figma
-
-
-Acknowledgements
-
-Thanks to the Code Institute community for support during challenging times.
-Gratitude to reviewers and peers for feedback.
-ChatGPT for assisting with README improvements.
-
-
+- Thanks to the Code Institute community for support during challenging times.  
+- Gratitude to reviewers and peers for feedback.  
+- ChatGPT for assisting with README improvements.  
