@@ -114,13 +114,38 @@ Input validation prevents bookings for past dates, enhancing usability and relia
 
 ## Database Schema
 
-The database structure is illustrated in the ER diagram below:
-![ER Diagram](../../Downloads/documentation/er_diagram.png)
 
-- **User**: Stores user information (via Django Allauth).
-- **Booking**: Stores booking details (name, email, date, time, guests, linked to User via foreign key).
+This section describes the data model implemented in the project and the relationships between its entities.
 
 ---
+
+## ER Overview
+
+```mermaid
+erDiagram
+    AUTH_USER ||--o{ BOOKING : "creates"
+    AUTH_USER {
+        int id PK
+        string username
+        string email
+        string first_name
+        string last_name
+        datetime date_joined
+        boolean is_active
+    }
+    BOOKING {
+        int id PK
+        int user_id FK "→ auth_user.id; on delete CASCADE"
+        string name "max_length=100"
+        string email "EmailField"
+        date date
+        time time
+        int guests "PositiveIntegerField"
+    }
+```
+
+
+
 
 ## Technologies Used
 
