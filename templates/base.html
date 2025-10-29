@@ -82,12 +82,12 @@
               <a class="nav-link" href="{% url 'menu' %}">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'booking' %}">Book</a>
+              <a class="nav-link" href="{% url 'booking:book_table' %}">Book</a>
             </li>
 
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'my_bookings' %}">My Bookings</a>
+              <a class="nav-link" href="{% url 'booking:my_bookings' %}">My Bookings</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}"
@@ -128,7 +128,8 @@
           {% endfor %}
         </div>
       </div>
-      {% endif %} {% block content %} {% endblock %}
+      {% endif %} 
+      {% block content %} {% endblock %}
     </main>
 
     <!-- Footer -->
