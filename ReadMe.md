@@ -57,10 +57,11 @@ Tanit’s Table offers an intuitive platform for users to explore Tunisian cuisi
 #### Site Owner
 - I want to display the restaurant’s menu in an elegant way.
 - I want users to be able to make, edit, and delete bookings securely.
+- I want to see the booking in the admin section 
 
 ### Design Decisions
 
-- **Color Palette**: Warm, earthy tones (terracotta, olive green, beige) inspired by Tunisian culture for authenticity and warmth.
+- **Color Palette**: Warm, earthy tones (terracotta, olive green, beige, blue and white) inspired by Tunisian culture for authenticity and warmth.
 - **Typography**: Roboto (body) and Lora (headings) for readability and aesthetic appeal.
 - **Layout**: Fixed navigation bar for accessibility, hero banner for visual impact, and footer with contact/social links.
 - **Accessibility**: High-contrast colors, alt text for images, and ARIA landmarks for screen reader support.
@@ -94,7 +95,6 @@ Tanit’s Table offers an intuitive platform for users to explore Tunisian cuisi
 | Responsive Design | Tested across multiple devices and screen sizes.                            |
 | Custom Error Pages| Custom 403, 404, and 500 error pages for a consistent user experience.      |
 | Meta Titles       | Unique meta titles for each page to improve usability and SEO.              |
-
 ---
 
 ## 🔁 CRUD Functionality
@@ -119,7 +119,7 @@ This section describes the data model implemented in the project and the relatio
 
 ---
 
-## ER Overview
+### ER Overview
 
 ```mermaid
 erDiagram
